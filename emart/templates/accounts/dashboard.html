@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-conten padding-y bg">
+
+{% include "includes/alert.html" %}
+
+<div class="container">
+	<div class="row">
+	{% include "includes/dashboard_sidebar.html" %}
+	<main class="card col-md-9">
+	<div class="">
+	<h4>logged in as :</h4><p class="">  {{user.first_name | capfirst }} {{user.last_name | capfirst }}</p></div>
+		<div class="row">
+			<div class="col-md-6" style=" text-align:center;" > 
+			<article class="card">
+			<div class="card-body">
+				<h4>Total Orders</h4>
+				<h4>{{order_count}}</h4>
+				<a href="{% url 'my_orders' %}">See Orders</a>
+			</div>
+			</article><!-- order-group.// -->
+			</div>
+			<div class="col-md-6" style=" text-align:center;" >
+			<article class="card">
+			<div class="card-body">
+				<img src="{{userprofile.profile_picture.url}}" width="50" height="50" style="border-radius:50%; object-fit:cover;">
+				<p class="pb-0 m-0">{{user.email}}</p>
+				<p class="pt-0 m-0">{{user.phone_number}} </p>
+ 			</div>
+			</article><!-- order-group.// --> 
+ 			</div>
+		</div>
+	</main>
+</div><!-- row.// -->
+</div>
+
+
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+
+{% endblock content %}
